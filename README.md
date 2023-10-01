@@ -1,2 +1,3 @@
-# project_1_335
-Project one fot 335 Algorithms class
+Ian Martinez
+9-26-23
+CPSC-335
