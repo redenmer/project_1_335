@@ -24,7 +24,7 @@ def process_person_schedule(file, person_name):
     working_time_values = re.findall(r'\d{1,2}:\d{2}', working_hours)
     print("Time Values:", working_time_values)
 
-    
+
 
     # Return the time values as a tuple
     return busy_time_values, working_time_values
@@ -34,5 +34,20 @@ with open('input.txt', 'r') as file:
     busy_time_values1, working_time_values1 = process_person_schedule(file, "Person 1")
     print("")
     busy_time_values2, working_time_values2 = process_person_schedule(file, "Person 2")
+
+    meeting = file.readline().strip()
+    print(meeting, "\n")
+    merging_busy_time = busy_time_values1 + busy_time_values2
+    merging_working_time = working_time_values1 + working_time_values2
+    print("Both of their Schedules: " , merging_busy_time)
+    print("\n")
+    print("Both of their Clock-In Times: ", merging_working_time)
+    print("\n")
+    merging_busy_time.sort(key=lambda x: x[1])
+    print("Sorted Schedules", merging_busy_time)
+
+
+
+
 
 # Now you can access the time values outside the function
