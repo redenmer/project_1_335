@@ -29,8 +29,8 @@ In order to use project1_starter.py Make sure to have the following on your syst
 4. Input person 2's Schedule
 5. Person 2's Clock-in and Clock-out time
 
-This program is very case and format sensitive. <br>
-All inputs should follow the following format: <br>
+** This program is very case and format sensitive. <br> **
+** All inputs should follow the following format: <br> **
 
 ```
 
