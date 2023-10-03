@@ -49,6 +49,7 @@ In order to use project1_starter.py Make sure to have the following on your syst
 08:30,17:00
 30
 [['10:00', '11:00'], ['12:30', '13:30'], ['15:30', '16:30']]
+09:00,17:30
 
 [['09:30', '10:30'], ['11:00', '12:00'], ['14:00', '15:00']]
 09:00,16:00
@@ -62,6 +63,7 @@ Only thing that'll compile and give output
 08:30,17:00
 30
 [['10:00', '11:00'], ['12:30', '13:30'], ['15:30', '16:30']]
+09:00,17:30
 
 Output: Common Available Time Slots:
 [08:30 - 09:00]
