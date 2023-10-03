@@ -5,49 +5,68 @@
 
 
 
-  #
-  # Declare each variable that will used to distinguish each thing
-  # Set each value to zero since it'll be our initial vlaue for each vector
 
   # Input values are coming from text.file
 import re
+from datetime import datetime, timedelta
 
-def process_person_schedule(file, person_name):
-    print(f"{person_name} Schedule")
-    busy_schedule = file.readline().strip()  # Read and store the schedule line
-    print("Schedule:", busy_schedule)
-    busy_time_values = re.findall(r'\d{2}:\d{2}', busy_schedule)
-    print("Values:", busy_time_values)
+def find_common_available_time(person1_intervals, person2_intervals, work_start, work_end, min_meeting_duration_minutes):
+    work_start_time = datetime.strptime(work_start, '%H:%M')
+    work_end_time = datetime.strptime(work_end, '%H:%M')
 
-    working_hours = file.readline().strip()  # Read and store the working hours line
-    print("Working Hours:", working_hours)
-    working_time_values = re.findall(r'\d{1,2}:\d{2}', working_hours)
-    print("Time Values:", working_time_values)
+    merged_intervals = []
+    for interval in person1_intervals + person2_intervals:
+        start_time = datetime.strptime(interval[0], '%H:%M')
+        end_time = datetime.strptime(interval[1], '%H:%M')
+        merged_intervals.append((start_time, end_time))
 
+    merged_intervals.sort(key=lambda x: x[0])
 
+    common_available_slots = []
 
-    # Return the time values as a tuple
-    return busy_time_values, working_time_values
+    current_time = work_start_time
 
-# Usage example
+    min_meeting_duration = timedelta(minutes=min_meeting_duration_minutes)
+
+    for interval in merged_intervals:
+        start_time, end_time = interval
+
+        if start_time > current_time:
+            gap_duration = start_time - current_time
+            if gap_duration >= min_meeting_duration and end_time <= work_end_time:
+                common_available_slots.append([current_time.strftime('%H:%M'), start_time.strftime('%H:%M')])
+
+        current_time = max(current_time, end_time)
+
+    if work_end_time - current_time >= min_meeting_duration:
+        common_available_slots.append([current_time.strftime('%H:%M'), min(current_time + min_meeting_duration, work_end_time).strftime('%H:%M')])
+
+    return common_available_slots
+
+# Read input
 with open('input.txt', 'r') as file:
-    busy_time_values1, working_time_values1 = process_person_schedule(file, "Person 1")
-    print("")
-    busy_time_values2, working_time_values2 = process_person_schedule(file, "Person 2")
+    person1_intervals = eval(file.readline().strip())
+    print("Person 1 Schedule")
+    print("Schedule:", person1_intervals)
+    work_hours1 = file.readline().strip().split(',')
+    print("Working Hours:", work_hours1)
+    meeting_duration = int(file.readline().strip())
+    print("Meeting Duration:", meeting_duration, "minutes")
 
-    meeting = file.readline().strip()
-    print(meeting, "\n")
-    merging_busy_time = busy_time_values1 + busy_time_values2
-    merging_working_time = working_time_values1 + working_time_values2
-    print("Both of their Schedules: " , merging_busy_time)
-    print("\n")
-    print("Both of their Clock-In Times: ", merging_working_time)
-    print("\n")
-    merging_busy_time.sort(key=lambda x: x[1])
-    print("Sorted Schedules", merging_busy_time)
+    person2_intervals = eval(file.readline().strip())
+    print("\nPerson 2 Schedule")
+    print("Schedule:", person2_intervals)
+    work_hours2 = file.readline().strip().split(',')
+    print("Working Hours:", work_hours2)
 
+common_available_time_slots = find_common_available_time(
+    person1_intervals, person2_intervals, work_hours1[0], work_hours1[1], meeting_duration
+)
 
-
-
-
-# Now you can access the time values outside the function
+with open('output.txt', 'w') as output_file:
+    if common_available_time_slots:
+        output_file.write("Common Available Time Slots:\n")
+        for slot in common_available_time_slots:
+            output_file.write(f"[{slot[0]} - {slot[1]}]\n")
+    else:
+        output_file.write("No common available time slots.\n")
