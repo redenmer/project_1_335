@@ -5,9 +5,10 @@ b.ianmartinez98@csu.fullerton.edu <br>
 CPSC-335 <br>
 Submission for Project 1 <br>
 
-##Test Cases
+##Output For Cases 
 
-![output_1](https://github.com/redenmer/project_1_335/assets/60246207/dc126e6f-5d41-448e-be56-baf5d4ce33ce) ![input_test_case_1](https://github.com/redenmer/project_1_335/assets/60246207/0679b78f-c5fc-47ae-9ebf-1d4db59174cf)
+![test_cases](https://github.com/redenmer/project_1_335/assets/60246207/cc11e57d-6de7-4393-abee-20f473b51a15)
+
 
 
 
