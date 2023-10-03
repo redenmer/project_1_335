@@ -7,6 +7,8 @@ Submission for Project 1 <br>
 
 ##Test Cases
 
+![output_1](https://github.com/redenmer/project_1_335/assets/60246207/dc126e6f-5d41-448e-be56-baf5d4ce33ce)
+
 
 ##GitHub Repo
 
