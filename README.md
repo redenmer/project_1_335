@@ -32,7 +32,7 @@ In order to use project1_starter.py Make sure to have the following on your syst
 This program is very case and format sensitive. <br>
 All inputs should follow the following format: <br>
 
-'''
+```
 
 [['09:00', '10:00'], ['11:30', '12:30'], ['14:30', '15:30']]
 08:30,17:00
@@ -40,7 +40,8 @@ All inputs should follow the following format: <br>
 [['10:00', '11:00'], ['12:30', '13:30'], ['15:30', '16:30']]
 09:00,17:30
 
-'''
+```
+
 
 
 ## Time Complexity Analysis
