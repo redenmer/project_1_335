@@ -21,6 +21,8 @@ In order to use project1_starter.py Make sure to have the following on your syst
 + project1_starter.py
 + output.txt
 
+### Step by step on what you want to do for the best results:
+
 1. First thing you want to do is input person 1's schedule
 2. Input Person 1's Clock-in and Clock-out time
 3. The desired length for the meeting in terms of minutes
@@ -31,11 +33,13 @@ This program is very case and format sensitive. <br>
 All inputs should follow the following format: <br>
 
 '''
+
 [['09:00', '10:00'], ['11:30', '12:30'], ['14:30', '15:30']]
 08:30,17:00
 30
 [['10:00', '11:00'], ['12:30', '13:30'], ['15:30', '16:30']]
 09:00,17:30
+
 '''
 
 
