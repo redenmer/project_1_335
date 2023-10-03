@@ -21,7 +21,7 @@ In order to use project1_starter.py Make sure to have the following on your syst
 + project1_starter.py
 + output.txt
 
-### Step by step on what you want to do for the best results:
+### Steps For best Results:
 
 1. First thing you want to do is input person 1's schedule
 2. Input Person 1's Clock-in and Clock-out time
@@ -29,8 +29,8 @@ In order to use project1_starter.py Make sure to have the following on your syst
 4. Input person 2's Schedule
 5. Person 2's Clock-in and Clock-out time
 
-** This program is very case and format sensitive. **
-** All inputs should follow the following format:  **
+**This program is very case and format sensitive**
+**All inputs should follow the following format:**
 
 ```
 
@@ -41,7 +41,8 @@ In order to use project1_starter.py Make sure to have the following on your syst
 09:00,17:30
 
 ```
-
+**Unfortuntely this program only works if the following criteria are met**
+**all value must be in military time xx:xx for any given time**
 
 
 ## Time Complexity Analysis
